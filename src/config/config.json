@@ -1,9 +1,9 @@
 {
   "development": {
     "username": "root",
-    "password": null,
-    "database": "proyecto_inf281",
-    "host": "127.0.0.1",
+    "password": "zXGVr56jRbFCeNb5ukzQ",
+    "database": "railway",
+    "host": "containers-us-west-94.railway.app",
     "dialect": "mysql",
     "timezone": "-04:00"
   },

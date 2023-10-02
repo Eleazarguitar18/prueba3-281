@@ -26,7 +26,7 @@ module.exports = {
     VERSION: process.env.MYSQL_ADDON_VERSION || "8.0",
   },
   SERVER: {
-    HOST: process.env.SERVER_HOST || "127.0.0.1",
-    PORT: process.env.SERVER_PORT || "3000",
+    HOST: process.env.HOST || "127.0.0.1",
+    PORT: process.env.PORT || "3000",
   },
 };

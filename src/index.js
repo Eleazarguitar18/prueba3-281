@@ -18,8 +18,8 @@ import constants from "./utils/constants.js";
 
 const app = express();
 
-const PORT_SERVER = constants.SERVER.PORT;
-const HOST_SERVER = constants.SERVER.HOST;
+const PORT_SERVER =  constants.SERVER.PORT;
+const HOST_SERVER =  constants.SERVER.HOST;
 
 app.use(express.json()); 
 app.use(cors());

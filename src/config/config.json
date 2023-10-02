@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "proyecto_inf281",
-    "host": "127.0.0.1",
+    "username": "u4bp0te4e3qp9f1g",
+    "password": "GMcFSTKkNNN4B6OMK5Vr",
+    "database": "b9phfl5gsfbpiawauyo8",
+    "host": "b9phfl5gsfbpiawauyo8-mysql.services.clever-cloud.com",
     "dialect": "mysql",
     "timezone": "-04:00"
   },

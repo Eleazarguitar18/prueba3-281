@@ -20,7 +20,9 @@ export default {
   agregar: async (req, res) => {
     try {
       console.log(req.files)
-      
+      if (req.files?.image){
+        
+      }
 
       const denuncia = await denunciaService.agregarDenuncia(req.body);
       return res

@@ -27,7 +27,7 @@ module.exports = {
   },
   SERVER: {
     HOST: process.env.SERVER_HOST || "127.0.0.1",
-    PORT: process.env.SERVER_PORT || "3000",
+    PORT: process.env.PORT || "3000",
   },
   CLOUDINARY:{
     CLOUD_NAME: process.env.CLOUDINARY_CLOUD_NAME,

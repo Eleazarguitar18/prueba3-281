@@ -9,17 +9,16 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      // models.Agrega.belongsTo(models.Usuario, {
-      //   foreignKey: "id_usuario",
-      //   onDelete: 'cascade',
-      //   onUpdate: 'cascade',
-      // });
-
-      // models.Agrega.belongsTo(models.Contacto, {
-      //   foreignKey: "id_contacto",
-      //   onDelete: 'cascade',
-      //   onUpdate: 'cascade',
-      // });
+      models.Agrega.belongsToMany(models.Contacto, {
+        through: models.Agrega,
+        foreignKey: "id_contacto",
+        onDelete: 'CASCADE',
+      });
+      models.Agrega.belongsToMany(models.Usuario_normal, {
+        through: models.Agrega,
+        foreignKey: "id_usuario",
+        onDelete: 'CASCADE',
+      });
     }
   }
   Agrega.init(
@@ -36,6 +35,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: "Agrega",
+      tableName: "Agregas",
     }
   );
   return Agrega;

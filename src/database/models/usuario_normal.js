@@ -13,14 +13,36 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "id_usuario",
         onDelete: 'CASCADE'
       });
-      models.Usuario_normal.hasMany(models.Contacto, {
+      models.Usuario_normal.belongsTo(models.Administrador, {
+        foreignKey: "id_administrador",
+        onDelete: 'CASCADE',
+      });
+      models.Usuario_normal.hasMany(models.Evaluacion, {
         foreignKey: "id_usuario",
         onDelete: 'CASCADE',
       });
-      // models.Usuario_normal.belongsTo(models.Administrador, {
-      //   foreignKey: "id_administrador",
-      //   onDelete: 'CASCADE',
-      // });
+      models.Usuario_normal.hasMany(models.Alerta, {
+        foreignKey: "id_usuario",
+        onDelete: 'CASCADE',
+      });
+
+      models.Usuario_normal.hasMany(models.Comentario, {
+        foreignKey: "id_usuario",
+        onDelete: 'CASCADE',
+      });
+
+      models.Usuario_normal.hasMany(models.Denuncia, {
+        foreignKey: "id_usuario",
+        onDelete: 'CASCADE',
+      });
+
+
+      models.Usuario.belongsToMany(models.Contacto, {
+        through: models.Agrega,
+        foreignKey: "id_usuario",
+        onDelete: 'CASCADE',
+      });
+
     }
   }
   Usuario_normal.init(
@@ -37,6 +59,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: "Usuario_normal",
+      tableName: "Usuario_normals",
     }
   );
   return Usuario_normal;

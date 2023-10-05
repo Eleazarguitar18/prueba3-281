@@ -9,11 +9,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      // models.Evaluacion.belongsTo(models.Usuario, {
-      //   foreignKey: "id_usuario",
-      //   onDelete: 'cascade',
-      //   onUpdate: 'cascade',
-      // });
+      models.Evaluacion.belongsTo(models.Usuario_normal, {
+        foreignKey: "id_usuario",
+        onDelete: 'CASCADE',
+      });
     }
   }
   Evaluacion.init(
@@ -32,6 +31,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: "Evaluacion",
+      tableName: "Evaluacions",
     }
   );
   return Evaluacion;

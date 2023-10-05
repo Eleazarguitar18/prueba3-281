@@ -9,21 +9,22 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      // models.Alerta.belongsTo(models.Usuario, {
-      //   foreignKey: "id_usuario",
-      //   onDelete: 'cascade',
-      //   onUpdate: 'cascade',
-      // });
+      models.Alerta.belongsTo(models.Usuario_normal, {
+        foreignKey: "id_usuario",
+        onUpdate: 'CASCADE',
+      });
+      
+      models.Alerta.belongsToMany(models.Contacto, {
+        through: models.Notifica,
+        foreignKey: "id_alerta",
+        onDelete: 'CASCADE',
+      });
 
-      // models.Alerta.belongsToMany(models.Contacto, {
-      //   through: "Notifica",
-      //   foreignKey: "id_alerta",
-      // });
-
-      // models.Alerta.belongsToMany(models.Institucion_Ayuda, {
-      //   through: "Recibe",
-      //   foreignKey: "id_alerta",
-      // });
+      models.Alerta.belongsToMany(models.Institucion_Ayuda, {
+        through: models.Recibe,
+        foreignKey: "id_alerta",
+        onDelete: 'CASCADE',
+      });
     }
   }
   Alerta.init(

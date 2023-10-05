@@ -19,6 +19,9 @@ export default {
   },
   agregar: async (req, res) => {
     try {
+      console.log(req.files)
+      
+
       const denuncia = await denunciaService.agregarDenuncia(req.body);
       return res
         .status(201)
@@ -26,6 +29,9 @@ export default {
     } catch (error) {
       return res.status(500).json({ message: error.message });
     }
+
+
+
   },
   editar: async (req, res) => {
     try {

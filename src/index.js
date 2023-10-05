@@ -1,6 +1,7 @@
 // IMPORTANDO MODULOS
 import express from "express";
 import cors from "cors";
+import fileUpload from "express-fileupload";
 
 import authRoute from "../src/routes/auth.routes.js";
 import usuarioRoute from "../src/routes/usuario.routes.js";
@@ -23,6 +24,11 @@ const HOST_SERVER = constants.SERVER.HOST;
 
 app.use(express.json()); 
 app.use(cors());
+
+app.use(fileUpload({
+    useTempFiles : true,
+    tempFileDir : './uploads'
+}));
 
 // Habilitamos las rutas
 app.use("/api", authRoute); 

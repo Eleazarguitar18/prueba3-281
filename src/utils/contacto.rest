@@ -37,7 +37,7 @@ Accept: application/json
 GET http://127.0.0.1:3000/api/contacto/usuario/28
 
 ### ELIMINAR CONTACTOS
-DELETE http://127.0.0.1:3000/api/contacto/16/usuario/36
+DELETE http://127.0.0.1:3000/api/contacto/3/usuario/12
 
 ### ELIMINAR CONTACTOS
 GET http://127.0.0.1:3000/api/institucion_ayuda

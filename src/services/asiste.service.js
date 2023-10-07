@@ -2,7 +2,10 @@ import {Asiste} from "../database/models"
 
 export default {
     listarAsiste: async () => {
-        return await Asiste.findAll();
+        return await Asiste.findAll({
+            attributes: ['id_asiste', 'id_administrador','id_denuncia','createdAt','updatedAt'],
+        }
+        );
     },
     agregarAsiste: async (nuevoAsiste) => {
         return await Asiste.create(nuevoAsiste);
@@ -22,12 +25,13 @@ export default {
         return true;
     },
     borrarAsiste: async (id) => {
-        const asiste = await Asiste.findByPk(id);
-        if (!asiste) return false;
+        // const asiste = await Asiste.findByPk(id);
+        console.log("------ eliminando ",id)
+        // if (!asiste) return false;
         await Asiste.destroy({
             where: {
                 id_asiste: id
-            },
+            }
         });
         return true;
     },

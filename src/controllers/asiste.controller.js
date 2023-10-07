@@ -1,22 +1,29 @@
 import asisteService from "../services/asiste.service";
 import denunciaService from "../services/denuncia.service";
 export default{
+    listar:async (req,res)=>{
+        try {
+            const asistencias = await asisteService.listarAsiste();
+            return res.status(200).json({data:asistencias});
+        } catch (error) {
+            return res.status(500).json({ message: error.message });
+        }
+    },
+
     agrega: async (req,res)=>{
         try{
-            console.log("entro aqui1 ")
+            // console.log("entro aqui1 ")
             const nuevo_asiste= req.body;
             const asiste = await asisteService.agregarAsiste(
                 nuevo_asiste
-                // req.params.id_admi,
-                // req.params.id_den
             )
             console.log("llego al if")
             if (asiste) {
-                
+                console.log(asiste)
                 const verfica=await denunciaService.editarAsistencia_Denuncia(
                     nuevo_asiste.id_denuncia,
                     true
-                );
+                )
                 if(verfica){console.log("se cambio el estado de la denuncia")}
                 else{console.log("no se cambio el estado de la denuncia")}
                 return res.status(200).json({
@@ -41,16 +48,17 @@ export default{
         try {
           let can = await asisteService.borrarAsiste(req.params.id);
           console.log(can)
-          if (can)
-            // denunciaService.editarAsistencia_Denuncia(
-            //     req.params.id_den,
-            //     false
-            // );
+          if (can){
+                const verfica=await denunciaService.editarAsistencia_Denuncia(
+                    req.params.id_denuncia,
+                    false
+                )
+                if(verfica){console.log("se cambio el estado de la denuncia")}
+                else{console.log("no se cambio el estado de la denuncia")}
             return res
               .status(200)
               .json({ message: "Se borro la asistencia de la denuncia" });
-              
-          
+            }
           return res.status(404).json({ message: "la asisntencia no existe" });
         } catch (error) {
           return res.status(500).json({ message: error.message });

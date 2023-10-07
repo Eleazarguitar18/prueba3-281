@@ -40,6 +40,19 @@ export default {
         });
         return true;
     },
+
+    editarAsistencia_Denuncia: async (id,nuevo_estado) => {
+        const denuncia = await Denuncia.findByPk(id);
+        console.log("edito el estado de la denuncia:",id," estado: ",nuevo_estado)
+        if (!denuncia) return false;
+        await Denuncia.update(
+            {estado: nuevo_estado},
+            {where: {
+                id_denuncia: id
+            },
+        });
+        return true;
+    },
     borrarDenuncia: async (id) => {
         const denuncia = await Denuncia.findByPk(id);
         if (!denuncia) return false;

@@ -16,7 +16,7 @@ import contactoRoute from "../src/routes/contacto.routes.js";
 import comentarioRoute from "../src/routes/comentario.routes.js";
 import alertaRoute from "../src/routes/alerta.routes.js";
 import constants from "../src/config/constants.js"
-
+import asisteRoute from "../src/routes/asiste.routes.js"
 const app = express();
 
 const PORT_SERVER = constants.SERVER.PORT;
@@ -43,6 +43,7 @@ app.use("/api", denunciaRoute);
 app.use("/api", contactoRoute);
 app.use("/api", comentarioRoute);
 app.use("/api", alertaRoute);
+app.use("/api", asisteRoute)
 
 app.listen(PORT_SERVER, () => {
     console.log(`Servidor iniciado en el puerto http://${HOST_SERVER}:${PORT_SERVER}`);

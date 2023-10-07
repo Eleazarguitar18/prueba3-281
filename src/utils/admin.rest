@@ -21,8 +21,8 @@ Content-Type: application/json
 Accept: application/json
 
 {
-	"ci": "9091",
-	"nombre": "9091",
+	"ci": "12",
+	"nombre": "rene",
 	"fecha_nac": "2000-09-06",
 	"genero": "9091",
 	"direccion": "los andes",

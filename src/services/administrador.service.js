@@ -6,6 +6,7 @@ import recursoService from "./recurso.service";
 import usuarioService from "./usuario.service";
 import usuario_normalService from "./usuario_normal.service";
 
+
 const getUsuario = (administrador) => {
   return {
     ci: administrador.ci,
@@ -99,4 +100,5 @@ export default {
     const admin = ans[0];
     return admin;
   },
+  
 };
